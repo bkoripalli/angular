@@ -8,7 +8,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { from } from 'rxjs';
-
+import { Routes, RouterModule } from '@angular/router';
+const routes: Routes = [
+  { path: 'login', component: LoginComponent }
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,10 +22,12 @@ import { from } from 'rxjs';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
-
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
