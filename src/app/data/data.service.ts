@@ -11,6 +11,6 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
   loginFun(login: Login): Observable<any> {
-    return this.http.post('https://putsreq.com/FPBMDXxxLdN7bzz0Y7sk', login);
+    return this.http.post('http://localhost:8080/login', login);
   }
 }
