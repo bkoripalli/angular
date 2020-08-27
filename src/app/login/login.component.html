@@ -2,12 +2,18 @@
   <form #form="ngForm" (ngSubmit)="onsubmit(form)">
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" [(ngModel)]="login.username">
+      <input  type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" [(ngModel)]="login.username" required #emailField="ngModel" [class.field-error]="form.submitted && emailField.invalid">
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <div [hidden]="!form.submitted || emailField.valid" class="alert alert-danger">
+        Enter valid email address.
+      </div>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="login.password">
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="login.password" required #pwdField="ngModel" [class.field-error]="form.submitted && pwdField.invalid">
+      <div [hidden]="!form.submitted || pwdField.valid" class="alert alert-danger">
+        Enter valid password.
+      </div>
     </div>
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">

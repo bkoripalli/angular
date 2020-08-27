@@ -31,11 +31,13 @@ onHttpError(errorResponse: any): void {
 }
 // tslint:disable-next-line: typedef
 onsubmit(form: NgForm) {
+  if (form.valid) {
     console.log('in on submit', form.valid);
     this.dataservice.loginFun(this.login).subscribe(
       result => console.log('sucess', result),
       error => this.onHttpError(error)
     );
   }
+}
 
 }
