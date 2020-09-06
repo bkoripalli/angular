@@ -1,1 +1,69 @@
-<p>register works!</p>
+<br/>
+<div [hidden]= "!postError" class="alert alert-danger">
+  {{postErrorMsg}}
+</div>
+<form #form="ngForm" (ngSubmit)="onsubmit(form)">
+  <div class="form-group row">
+    <label for="firstname" class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="firstname" name="firstname" placeholder="First Name" [(ngModel)]="register.firstname" required #firstnameField="ngModel" [class.field-error]="form.submitted && firstnameField.invalid">
+    </div>
+
+  </div>
+  <div class="form-group row">
+    <label for="lastname" class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-10">
+      <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Last Name" [(ngModel)]="register.lastname" required #lastnameField="ngModel" [class.field-error]="form.submitted && lastnameField.invalid">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email" [(ngModel)]="register.email" required #emailField="ngModel" [class.field-error]="form.submitted && emailField.invalid">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="username" class="col-sm-2 col-form-label">Username</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="username" id="username" placeholder="Username" [(ngModel)]="register.username" required #usernameField="ngModel" [class.field-error]="form.submitted && usernameField.invalid">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="password" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" name="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="register.password" required #passwordField="ngModel" [class.field-error]="form.submitted && passwordField.invalid">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="company" class="col-sm-2 col-form-label">Company</label>
+    <div class="col-sm-10">
+      <input type="text" name="company" class="form-control" id="company" placeholder="Company" [(ngModel)]="register.company" required #companyField="ngModel" [class.field-error]="form.submitted && companyField.invalid">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="location" class="col-sm-2 col-form-label">Location</label>
+    <div class="col-sm-10">
+      <input type="text" name="location" class="form-control" id="location" placeholder="Location" [(ngModel)]="register.location" required #locationField="ngModel" [class.field-error]="form.submitted && locationField.invalid">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="job" class="col-sm-2 col-form-label">Job</label>
+    <div class="col-sm-10">
+      <input type="text" name="job" class="form-control" id="job" placeholder="Job" [(ngModel)]="register.job" required #jobField="ngModel" [class.field-error]="form.submitted && jobField.invalid">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="industry" class="col-sm-2 col-form-label">Industry</label>
+    <div class="col-sm-10">
+      <input type="text" name="industry" class="form-control" id="industry" placeholder="Industry" [(ngModel)]="register.industry" required #industryField="ngModel" [class.field-error]="form.submitted && industryField.invalid">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-2">
+      <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+    <div class="col-sm-10">
+      <button type="reset" class="btn btn-primary">Cancel</button>
+    </div>
+  </div>
+</form>

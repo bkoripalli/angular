@@ -35,7 +35,11 @@ onsubmit(form: NgForm) {
   if (form.valid) {
     console.log('in on submit', form.valid);
     this.dataservice.loginFun(this.login).subscribe(
-      result => this.router.navigate(['welcome']),
+      result => {
+        this.dataservice.currentUser = result;
+        console.log(this.dataservice.isLoggedIn);
+        this.router.navigate(['welcome']);
+      } ,
       error => this.onHttpError(error)
     );
   }
